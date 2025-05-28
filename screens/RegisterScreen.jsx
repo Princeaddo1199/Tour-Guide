@@ -3,47 +3,54 @@ import {
   StyleSheet,
   Text,
   View,
+  StatusBar,
   TextInput,
   TouchableOpacity,
   Image,
 } from "react-native";
 import React, { useState } from "react";
 
-export default function LoginScreen({ navigation }) {
+export default function RegisterScreen() {
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
-
+  const [confirmPasswordFocused, setConfirmPasswordFocused] = useState(false);
   return (
     <View style={styles.containerMain}>
+      <View></View>
       <View style={styles.headerText}>
-        <Text style={styles.headertextMain}>Welcome Back</Text>
-        <Text>Please enter your details</Text>
+        <Text style={styles.headerTextPrimary}>Welcome to Explore!</Text>
+        <Text style={styles.headerTextSecondary}>
+          Let's create your account
+        </Text>
       </View>
-      <View style={styles.loginArea}>
+      <View style={styles.signUpContainer}>
         <TextInput
           placeholder="Email"
           style={[styles.textInput, emailFocused && styles.textInputFocused]}
           onFocus={() => setEmailFocused(true)}
           onBlur={() => setEmailFocused(false)}
-          onChangeText={""}
         />
         <TextInput
-          placeholder="Password"
-          style={[styles.textInput, passwordFocused && styles.textInputFocused]}
+          placeholder="Enter Password"
           onFocus={() => setPasswordFocused(true)}
           onBlur={() => setPasswordFocused(false)}
-          onChangeText={""}
+          style={[styles.textInput, passwordFocused && styles.textInputFocused]}
           secureTextEntry
         />
-        <TouchableOpacity style={styles.loginBtn} onPress={""}>
-          <Text style={{ color: "#fff" }}>Log In</Text>
+        <TextInput
+          placeholder="Confirm Password"
+          style={[
+            styles.textInput,
+            confirmPasswordFocused && styles.textInputFocused,
+          ]}
+          onFocus={() => setConfirmPasswordFocused(true)}
+          onBlur={() => setConfirmPasswordFocused(false)}
+          secureTextEntry
+        />
+        <TouchableOpacity style={styles.signUpBtn} onPress={""}>
+          <Text style={{ color: "#fff" }}>Sign Up</Text>
         </TouchableOpacity>
-      </View>
-      <View style={styles.forgotPassword}>
-        <TouchableOpacity style={styles.forgotPasswordBtn} onPress={""}>
-          <Text style={{ color: "#FE8C00" }}>Forgotten Password?</Text>
-        </TouchableOpacity>
-        <Text style={{ marginTop: 60 }}>or log in with</Text>
+        <Text style={{ marginTop: 80 }}>or continue with</Text>
       </View>
       <View style={styles.socials}>
         <TouchableOpacity onPress={""} style={styles.socialsBtn}>
@@ -61,35 +68,30 @@ export default function LoginScreen({ navigation }) {
           <Text>Facebook</Text>
         </TouchableOpacity>
       </View>
-      <View>
-        <TouchableOpacity
-          style={styles.footer}
-          onPress={() => navigation.navigate("register")}
-        >
-          <Text style={{ color: "#FE8C00" }}>
-            Don't have an account? Register
-          </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   containerMain: {
-    marginTop: 40,
-    backgroundColor: "#EAEAEA",
+    paddingTop: StatusBar.currentHeight,
     flex: 1,
+    backgroundColor: "#EAEAEA",
   },
   headerText: {
     alignItems: "center",
     marginTop: 100,
   },
-  headertextMain: {
+  headerTextPrimary: {
     fontSize: 24,
     fontWeight: "500",
     marginBottom: 10,
   },
+  signUpContainer: {
+    alignItems: "center",
+    marginTop: 50,
+  },
+  headerTextSecondary: {},
   textInput: {
     width: 300,
     height: 50,
@@ -99,17 +101,12 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 20,
     borderWidth: 2, // Add borderWidth for borderColor to show
-    borderColor: "transparent", // Default border color
+    borderColor: "transparent",
   },
   textInputFocused: {
     borderColor: "#FE8C00", // Orange border on focus
   },
-  loginArea: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 50,
-  },
-  loginBtn: {
+  signUpBtn: {
     width: 300,
     height: 50,
     alignItems: "center",
@@ -117,11 +114,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 25,
   },
-  forgotPassword: {
-    alignItems: "center",
-    marginTop: 30,
-  },
-  forgotPasswordBtn: {},
   socials: {
     justifyContent: "center",
     alignItems: "center",
@@ -136,9 +128,5 @@ const styles = StyleSheet.create({
     width: 120,
     height: 50,
     backgroundColor: "#BDBDBD",
-  },
-  footer: {
-    alignItems: "center",
-    marginTop: 170,
   },
 });
