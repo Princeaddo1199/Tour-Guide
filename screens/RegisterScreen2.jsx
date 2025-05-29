@@ -6,11 +6,9 @@ import {
   StatusBar,
   TextInput,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import React, { useState } from "react";
-// import Ionicons from 'react-native-vector-icons/Ionicons';
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function RegisterScreen({ navigation }) {
   // Track the state if textInput is focused and add borderColor
@@ -22,34 +20,33 @@ export default function RegisterScreen({ navigation }) {
       <View>
         <TouchableOpacity
           style={styles.backbtn}
-          onPress={() => navigation.navigate("login")}
+          onPress={() => navigation.navigate("register")}
         >
-          <Ionicons name="arrow-back" size={24} color="black" />
-          {/* <Ionicons name="arrow-back" size={24} color="#808080" /> */}
+          <Ionicons name="arrow-back" size={24} color="#808080" />
         </TouchableOpacity>
       </View>
       <View style={styles.headerText}>
-        <Text style={styles.headerTextPrimary}>Welcome to Explore!</Text>
+        <Text style={styles.headerTextPrimary}>A few more details</Text>
         <Text style={styles.headerTextSecondary}>
-          Let's create your account
+          Let's give your account some more personality
         </Text>
       </View>
       <View style={styles.signUpContainer}>
         <TextInput
-          placeholder="Email"
+          placeholder="First Name"
           style={[styles.textInput, emailFocused && styles.textInputFocused]}
           onFocus={() => setEmailFocused(true)}
           onBlur={() => setEmailFocused(false)}
         />
         <TextInput
-          placeholder="Enter Password"
+          placeholder="Gender"
           onFocus={() => setPasswordFocused(true)}
           onBlur={() => setPasswordFocused(false)}
           style={[styles.textInput, passwordFocused && styles.textInputFocused]}
           secureTextEntry
         />
         <TextInput
-          placeholder="Confirm Password"
+          placeholder="Date of Birth"
           style={[
             styles.textInput,
             confirmPasswordFocused && styles.textInputFocused,
@@ -60,26 +57,9 @@ export default function RegisterScreen({ navigation }) {
         />
         <TouchableOpacity
           style={styles.signUpBtn}
-          onPress={() => navigation.navigate("moredetails")}
+          onPress={() => navigation.navigate("grantaccess1")}
         >
           <Text style={{ color: "#fff" }}>Sign Up</Text>
-        </TouchableOpacity>
-        <Text style={{ marginTop: 80 }}>or continue with</Text>
-      </View>
-      <View style={styles.socials}>
-        <TouchableOpacity onPress={""} style={styles.socialsBtn}>
-          <Image
-            source={require("../assets/google.png")}
-            style={{ width: 25, height: 25, marginRight: 10 }}
-          />
-          <Text>Google</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={""} style={styles.socialsBtn}>
-          <Image
-            source={require("../assets/facebook.png")}
-            style={{ width: 25, height: 25, marginRight: 10 }}
-          />
-          <Text>Facebook</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -131,6 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FE8C00",
     justifyContent: "center",
     borderRadius: 25,
+    marginTop: 300,
   },
   socials: {
     justifyContent: "center",
