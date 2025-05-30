@@ -46,8 +46,9 @@ Create a `.env` file in the `backend` directory with the following:
 
 ```env
 PORT=5000
-MONGO_URL=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
+MONGO_URI=mongodb://mongo:NThNtFEUKzbGcQBKXrifqjxPubPDCCan@yamanote.proxy.rlwy.net:22979/tourguide?authSource=admin# Secret key used to sign JWT tokens for user authentication
+JWT_SECRET = supersecretjwtkey123
+JWT_EXPIRES_IN=1d
 ```
 
 Replace `your_mongodb_connection_string` with the Railway MongoDB URL, and `your_jwt_secret` with any random secure string (e.g., `mysecretkey123`).
