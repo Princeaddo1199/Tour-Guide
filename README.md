@@ -1,3 +1,11 @@
+#Packages to install to test the app on your end
+--npm packages to install
+1. react native async storage
+2. react navigation
+3. react native onboarding swiper
+4. expo vector icons
+
+
 # 🧭 Tour Guide App - Backend
 
 This is the backend of the Tour Guide application. It provides APIs for user authentication and tour data. Built with **Node.js**, **Express**, and **MongoDB**.
